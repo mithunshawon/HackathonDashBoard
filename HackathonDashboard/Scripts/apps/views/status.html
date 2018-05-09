@@ -1,0 +1,83 @@
+﻿
+<script src="/Scripts/classie.js"></script>
+
+<div class="row">
+ 
+    <div class="panel panel-default share clearfix-xs">
+        <div class="panel-heading panel-heading-gray title" id="statusBarHeading">
+            What´s new
+        </div>
+        <div class="panel-body" id="statusBox">
+            <textarea name="status" class="form-control share-text" rows="3" placeholder="Share your status..." id="message" ng-model="message"></textarea>
+        </div>
+        <div class="panel-footer share-buttons">
+            <!--<a href="#"><i class="fa fa-map-marker"></i></a>-->
+            <a href="#"><i class="fa fa-photo"></i></a>
+            <!--<a href="#"><i class="fa fa-video-camera"></i></a>-->
+            <button type="submit" class="btn btn-primary btn-xs pull-right display-none" href="#" id="statusBoxButton" ng-click="greeting()" ng-hide="!message.length">Post</button>
+        </div>
+    </div>
+
+    <!--<div id="body">
+        <div id="discussion"></div>
+    </div>-->
+
+    <div class="profile-body">
+        <!--Timeline-->
+        <ul class="timeline-v2" id="postContainer" ng-controller="postCrtl" ng-hide="!messages[0].message">
+            <li id="postList" ng-repeat="chat in messages">
+                <!--<time class="cbp_tmtime" datetime=""><span>4/1/08</span> <span>January</span></time>-->
+                <time class="cbp_tmtime" datetime=""><span>{{chat.date.getHours() + ":" + chat.date.getMinutes() + ":" + chat.date.getSeconds() }}</span> <span>{{chat.date.getDate() + "/" +chat.date.getMonths()+1 + "/" + chat.date.getFullYear()}}</span></time>
+                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                <div class="cbp_tmlabel">
+                    <h2 id="postOwnerName">{{chat.name}}</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-responsive" src="content/img/job/high-rated-job-3.1.jpg" alt="">
+                            <div class="md-margin-bottom-20"></div>
+                        </div>
+                        <div class="col-md-8" id="discussion" style="color: black; font-size:16px;">
+                            {{chat.message}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //$(function () {
+
+    //    // Declare a proxy to reference the hub.
+    //    var chat = $.connection.chatHub;
+    //    console.log($.connection.hub);
+    //    // Create a function that the hub can call to broadcast messages.
+    //    chat.client.broadcastMessage = function(name, message) {
+    //        // Html encode display name and message.
+    //        var encodedName = $('<div />').text(name).html();
+    //        var encodedMsg = $('<div />').text(message).html();
+    //        // Add the message to the page.
+    //        //$('#discussion').append('<div id="postDiv"><strong>' + encodedName
+    //        //    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</div>');
+    //        //document.getElementById("userName").innerHTML = encodedName + " says, ";
+    //        //document.getElementById("statusBody").innerHTML = encodedMsg;
+    //        $('#discussion').prepend("<div class='box6'><h1>" + encodedName + " says, </h1><p>" + encodedMsg + "</p><br /><div class='box6_corner_lf'></div> <div class='box6_corner_rt'></div></div>");
+    //    };
+    //    // Get the user name and store it to prepend to messages.
+    //    $('#displayname').val("Mithun");
+    //    // Set initial focus to message input box.
+    //    $('#message').focus();
+    //    // Start the connection.
+    //    $.connection.hub.start().done(function() {
+    //        $('#sendmessage').click(function() {
+    //            // Call the Send method on the hub.
+    //            chat.server.send($('#displayname').val(), $('#message').val());
+    //            // Clear text box and reset focus for next comment.
+    //            $('#message').val('').focus();
+    //        });
+    //    });
+    //});
+</script>

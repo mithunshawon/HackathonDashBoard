@@ -1,0 +1,15 @@
+.vs
+*.suo
+*.user
+_ReSharper*
+[Oo]bj/
+[Bb]in/
+TestResults
+~*
+*.ide
+
+General
+
+packages
+
+Migrations
